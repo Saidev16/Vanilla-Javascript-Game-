@@ -26,6 +26,7 @@ var chronoTimer = null;
 
 // YOUR CODE BELOW
 
+// Function that handle the Start game 
 function start(){
     terrain.innerHTML ='';
     manageTime();
@@ -70,6 +71,7 @@ function change(){
 
 }
 
+// function that insert the wanted targets on the page
 function addCible(){
     var targetNum = change();
     for(i=0; i<targetNum;i++){
@@ -83,6 +85,7 @@ function addCible(){
 }
 }
 
+// function that insert one target on the page
 function singleCible(){
     terrain.innerHTML ='';
     var cible = document.createElement("div");                 
@@ -110,9 +113,9 @@ document.addEventListener('click', function(e){
     }
 })
 
-
+// function that appears when the game is over 
 function gameover(){
-    alert('vous avez écoulé '+minutes+' minutes et '+seconds+' seconds et '+time+' milliseconds')
+    window.alert('vous avez écoulé '+minutes+' minutes et '+seconds+' seconds et '+time+' milliseconds')
     time = 0;
     minutes=0;
     seconds=0;
@@ -121,4 +124,15 @@ function gameover(){
     tenthDOM.innerHTML = 0 ;
     clearInterval(timer);
 
+}
+
+function level(){
+    var levelValue = document.getElementById('selectLevel').value;
+    if(levelValue == 'Difficile'){
+        terrain.style.width='500px';
+        terrain.style.height='450px';
+    }else{
+        terrain.style.width='400px';
+        terrain.style.height='400px';
+    }
 }
